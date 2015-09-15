@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kubectl create -f cassandra-nodes-service.yml
+kubectl create -f cassandra-service.yml
+kubectl create -f cassandra-replication-controller.yml
