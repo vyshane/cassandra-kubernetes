@@ -6,12 +6,6 @@ metadata:
   name: cassandra
 spec:
   ports:
-    - port: 7000
-      name: intra-node-communication
-    - port: 7001
-      name: tls-intra-node-communication
-    - port: 7199
-      name: jmx
     - port: 9042
       name: cql
   selector:
