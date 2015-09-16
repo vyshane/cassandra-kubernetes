@@ -2,14 +2,7 @@
 
 ## Creating a Cluster
 
-First, build the Cassandra Docker image:
-
-```sh
-cd image
-./build.sh
-```
-
-Then start the cluster. You will need to bring your own Kubernetes. A quick and easy way to setup Kubernetes locally is [via Docker Compose](https://github.com/vyshane/docker-compose-kubernetes). Once you have Kubernetes up and running:
+You will need to bring your own Kubernetes. A quick and easy way to setup Kubernetes locally is [via Docker Compose](https://github.com/vyshane/docker-compose-kubernetes). Once you have Kubernetes up and running:
 
 ```sh
 ./start-cassandra.sh
