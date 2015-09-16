@@ -67,7 +67,7 @@ Check out the [official Kubernetes Cassandra example](https://github.com/kuberne
 
 ## Why did you create this project?
 
-I wanted to reuse the [official Cassandra Docker image](https://hub.docker.com/_/cassandra/). My [Docker image](image/Dockerfile) extends the official Cassandra image with the addition dnsutils and a [custom entrypoint](image/custom-entrypoint.sh) that configures seed nodes for the container.
+I wanted to reuse the [official Cassandra Docker image](https://hub.docker.com/_/cassandra/). My [Docker image](image/Dockerfile) extends the official Cassandra image with the addition of [dnsutils](https://packages.debian.org/jessie/dnsutils) (for the `dig` command) and a [custom entrypoint](image/custom-entrypoint.sh) that configures seed nodes for the container.
 
 Seed node IP addresses are provided via DNS by a [headless Kubernetes service](cassandra-peer-service.yml).
 
