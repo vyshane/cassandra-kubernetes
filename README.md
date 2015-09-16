@@ -12,7 +12,7 @@ cd image
 Then start the cluster. You will need to bring your own Kubernetes. A quick and easy way to setup Kubernetes locally is [via Docker Compose](https://github.com/vyshane/docker-compose-kubernetes). Once you have Kubernetes up and running:
 
 ```sh
-./start-cassandra-cluster.sh
+./start-cassandra.sh
 ```
 
 This will create a Kubernetes pod containing a single Cassandra node. You can use the [`cassandra-status.sh`](cassandra-status.sh) convenience script to see that the node comes up:
@@ -74,7 +74,7 @@ Check out the [official Kubernetes Cassandra example](https://github.com/kuberne
 
 ## Why did you create this project?
 
-I wanted to stay close to the [official Cassandra Docker image](https://hub.docker.com/_/cassandra/). I'm using a [Docker image](image/Dockerfile) that is identical to the official Cassandra image except for the addition of a [custom entrypoint](custom-entrypoint.sh) that configures seed nodes for the container before giving control back to the upstream entrypoint.
+I wanted to reuse the [official Cassandra Docker image](https://hub.docker.com/_/cassandra/). My [Docker image](image/Dockerfile) extends the official Cassandra image with the addition dnsutils and a [custom entrypoint](image/custom-entrypoint.sh) that configures seed nodes for the container.
 
-Seed node IP addresses are provided via DNS by a [headless Kubernetes service](../cassandra-nodes-service.yml).
+Seed node IP addresses are provided via DNS by a [headless Kubernetes service](cassandra-peer-service.yml).
 

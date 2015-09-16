@@ -16,6 +16,9 @@ spec:
       containers:
         - image: vyshane/cassandra
           name: cassandra
+          env:
+            - name: PEER_DISCOVERY_DOMAIN
+              value: "cassandra-peers.default.cluster.local."
           ports:
             - containerPort: 9042
               name: cql

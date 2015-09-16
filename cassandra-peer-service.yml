@@ -3,8 +3,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: cassandra-nodes
-  name: cassandra-nodes
+    name: cassandra-peers
+  name: cassandra-peers
 spec:
   clusterIP: None
   ports:
