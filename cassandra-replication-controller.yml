@@ -17,8 +17,19 @@ spec:
         - image: vyshane/cassandra
           name: cassandra
           env:
+            # Feel free to change the following:
+            - name: CASSANDRA_CLUSTER_NAME
+              value: Cassandra
+            - name: CASSANDRA_DC
+              value: DC1
+            - name: CASSANDRA_RACK
+              value: Kubernetes Cluster
+            - name: CASSANDRA_ENDPOINT_SNITCH
+              value: GossipingPropertyFileSnitch
+
+            # The peer discovery domain needs to point to the Cassandra peer service
             - name: PEER_DISCOVERY_DOMAIN
-              value: "cassandra-peers.default.cluster.local."
+              value: cassandra-peers.default.cluster.local.
           ports:
             - containerPort: 9042
               name: cql
