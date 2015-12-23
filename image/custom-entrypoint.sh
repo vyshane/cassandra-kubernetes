@@ -4,11 +4,11 @@
 
 my_ip=$(hostname --ip-address)
 
-CASSANDRA_SEEDS=$(dig $PEER_DISCOVERY_DOMAIN +short | \
+CASSANDRA_SEEDS=$(host $PEER_DISCOVERY_SERVICE | \
     grep -v $my_ip | \
     sort | \
     head -2 | xargs | \
-    sed -e 's/ /,/g')
+    awk '{print $4}')
 
 export CASSANDRA_SEEDS
 
