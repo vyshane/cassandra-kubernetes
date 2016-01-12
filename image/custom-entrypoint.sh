@@ -5,11 +5,14 @@
 my_ip=$(hostname --ip-address)
 
 CASSANDRA_SEEDS=$(host $PEER_DISCOVERY_SERVICE | \
+    grep -v "not found" | \
     grep -v $my_ip | \
     sort | \
     head -2 | xargs | \
     awk '{print $4}')
 
-export CASSANDRA_SEEDS
+if [ ! -z "$CASSANDRA_SEEDS" ]; then
+    export CASSANDRA_SEEDS
+fi
 
 /docker-entrypoint.sh "$@"
